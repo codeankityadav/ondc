@@ -10,7 +10,7 @@ const MainNavigation = () => {
     const Stack = createNativeStackNavigator();
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName={ROUTE.SPLASH} screenOptions={{ headerShown: false }}>
+            <Stack.Navigator initialRouteName={ROUTE.SPLASH} >
                 <Stack.Screen name={ROUTE.SPLASH} component={SplashScreen} />
                 <Stack.Screen name={ROUTE.LOGIN} component={LoginScreen} />
                 <Stack.Screen name={ROUTE.VERIFY_OTP} component={VerifyOTPScreen} />
