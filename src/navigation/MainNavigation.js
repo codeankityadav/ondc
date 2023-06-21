@@ -4,13 +4,14 @@ import { AddressScreen, CartScreen, CategoryScreen, FoodScreen, HomeScreen, Logi
 import { ROUTE } from '../utils/constants/Route';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
+import HomeDrawer from './drawer/HomeDrawer';
 
 const MainNavigation = () => {
 
     const Stack = createNativeStackNavigator();
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName={ROUTE.SPLASH} >
+            <Stack.Navigator initialRouteName={ROUTE.HOME_DRAWER} >
                 <Stack.Screen name={ROUTE.SPLASH} component={SplashScreen} />
                 <Stack.Screen name={ROUTE.LOGIN} component={LoginScreen} />
                 <Stack.Screen name={ROUTE.VERIFY_OTP} component={VerifyOTPScreen} />
@@ -24,6 +25,8 @@ const MainNavigation = () => {
                 <Stack.Screen name={ROUTE.ADDRESS} component={AddressScreen} />
                 <Stack.Screen name={ROUTE.ORDERS} component={OrdersScreen} />
                 <Stack.Screen name={ROUTE.PROFILE} component={ProfileScreen} />
+
+                <Stack.Screen name={ROUTE.HOME_DRAWER} component={HomeDrawer} />
             </Stack.Navigator>
         </NavigationContainer>
     )

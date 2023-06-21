@@ -13,9 +13,9 @@ let ROUTE = {
     PROFILE: "Profile",
     ORDERS: "Order",
 
-    MAIN_DRAWER: "Main Drawer",
+    HOME_DRAWER: "Home Drawer",
     HOME_BOTTOM_TAB: "Home Bottom Tab",
-    FOOD_TOP_TAB: "Home Top Tabs",
+    HOME_TOP_TAB: "Home Top Tabs",
 }
 
 export { ROUTE }
