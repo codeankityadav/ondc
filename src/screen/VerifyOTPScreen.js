@@ -1,19 +1,31 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import React from 'react'
-import ButtonCmp from '../component/button/ButtonCmp'
-import Wrapper from '../component/wrapper/Wrapper'
-import { COLORS, ROUTE } from '../utils/constants'
 import { gStyles } from '../Style'
+import { COLORS, FONT_SIZE, ROUTE, TEXTS, rw } from '../utils/constants'
+import { ButtonCmp, CenterCmp, TextInputCmp, Wrapper } from '../component'
 
-const VerifyOTPScreen = ({navigation}) => {
+const LoginScreen = ({ navigation }) => {
   return (
-   
-    <Wrapper styles={gStyles.containerCenter} backgroundColor={COLORS.RED} barStyle={'light-content'}>
-      <ButtonCmp onPress={() => navigation.navigate(ROUTE.HOME)} title={ROUTE.HOME}/>
+    <Wrapper >
+      <CenterCmp flexDirection='col' style={{ paddingTop: rw(15) }}>
+        <Text style={[gStyles.titleText, { fontSize: FONT_SIZE.h1 }]}>{TEXTS.VERIFY_OTP.VERIFY_PHONE}</Text>
+        <Text style={[gStyles.titleDescText, { paddingTop: rw(5) }]}>{TEXTS.VERIFY_OTP.SMS}</Text>
+        <View className='flex-row items-center' style={{ paddingTop: rw(2) }}>
+          <Text style={[gStyles.titleDescText]}>+91-994371397</Text>
+          <TouchableOpacity onPress={() => navigation.navigate(ROUTE.LOGIN)}>
+            <Text style={[gStyles.titleDescText, { color: COLORS.LIGHT_BLUE, marginLeft: rw(3) }]}>Change</Text>
+          </TouchableOpacity>
+        </View>
+        <TextInputCmp keyboardType='numeric' maxLength={6} />
+        <ButtonCmp
+          onPress={() => navigation.navigate(ROUTE.HOME_DRAWER)}
+          title='Verify' />
+        <Text style={[gStyles.titleDescText, { paddingTop: rw(5), color: COLORS.GREEN, textAlign: 'right' }]}>{TEXTS.VERIFY_OTP.WAITING}</Text>
+      </CenterCmp>
     </Wrapper>
   )
 }
 
-export default VerifyOTPScreen
+export default LoginScreen
 
 const styles = StyleSheet.create({})

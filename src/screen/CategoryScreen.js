@@ -1,15 +1,40 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View, FlatList } from 'react-native'
 import React from 'react'
-import ButtonCmp from '../component/button/ButtonCmp'
-import Wrapper from '../component/wrapper/Wrapper'
-import { COLORS, ROUTE } from '../utils/constants'
-import { gStyles } from '../Style'
+import { CenterCmp, HeaderCmp, ImageTextRowCmp, Wrapper } from '../component'
+import { rh, rw } from '../utils/Dimension'
+import { CATEGORY, ORDERS_LINKS } from '../utils/constants/Data'
 
-const CategoryScreen = ({navigation}) => {
+const CategoryScreen = () => {
   return (
-   
-    <Wrapper styles={gStyles.containerCenter} backgroundColor={COLORS.RED} barStyle={'light-content'}>
-      <ButtonCmp onPress={() => navigation.navigate(ROUTE.PROFILE)} title={ROUTE.PROFILE}/>
+    <Wrapper>
+      <HeaderCmp isSearch={false} />
+
+      <CenterCmp flexDirection={'col'}>
+        <FlatList
+          data={CATEGORY}
+          renderItem={({ item }) => <ImageTextRowCmp title={item.title} icon={item.icon} />}
+          // renderItem={({ item }) => <CategoryBoxCmp title={item.title} imgSrc={item.imgSrc} />}
+          keyExtractor={(item) => item.id}
+          contentContainerStyle={{
+            padding: rw(0.2),
+            width: rw(100)
+          }}
+        />
+      </CenterCmp>
+
+
+      {/* <FlatList
+        numColumns={4}
+        data={CATEGORY} 
+        renderItem={({ item }) => <CategoryBoxCmp title={item.title} imgSrc={item.imgSrc} />}
+        keyExtractor={(item) => item.id}
+        contentContainerStyle={{
+          padding: rw(0.2),
+          width: rw(100)
+        }}
+      /> */}
+
+
     </Wrapper>
   )
 }

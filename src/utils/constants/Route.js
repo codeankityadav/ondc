@@ -11,7 +11,8 @@ let ROUTE = {
     PAYMENT: "Payment",
     ADDRESS: "Address",
     PROFILE: "Profile",
-    ORDERS: "Order",
+    ORDERS: "Order", 
+    ACCOUNT: "Account", 
 
     HOME_DRAWER: "Home Drawer",
     HOME_BOTTOM_TAB: "Home Bottom Tab",

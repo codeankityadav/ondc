@@ -1,15 +1,24 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import ButtonCmp from '../component/button/ButtonCmp'
-import Wrapper from '../component/wrapper/Wrapper'
 import { gStyles } from '../Style'
-import { COLORS, ROUTE } from '../utils/constants'
+import { COLORS, FONT_SIZE, ROUTE, TEXTS, rw } from '../utils/constants'
+import { ButtonCmp, CenterCmp, TextInputCmp, Wrapper } from '../component'
 
-const LoginScreen = ({navigation}) => {
+const LoginScreen = ({ navigation }) => {
   return (
-    <Wrapper styles={gStyles.containerCenter} backgroundColor={COLORS.RED} barStyle={'light-content'}>
-      <ButtonCmp onPress={() => navigation.navigate(ROUTE.VERIFY_OTP)} title={ROUTE.VERIFY_OTP}/>
-    </Wrapper>
+    <Wrapper>
+      <CenterCmp flexDirection='col'>
+        <CenterCmp className="flex-row justify-end items-center" style={{ paddingTop: rw(10) }}>
+          <Text style={[gStyles.titleText, { color: COLORS.RED }]}>Skip</Text>
+        </CenterCmp>
+        <Text style={[gStyles.titleText, { fontSize: FONT_SIZE.h1 }]}>{TEXTS.LOGIN_TEXT}</Text>
+        <TextInputCmp keyboardType='numeric' maxLength={10} />
+        <ButtonCmp
+          onPress={() => navigation.navigate(ROUTE.VERIFY_OTP)}
+          title='Login' />
+        <Text style={[gStyles.titleDescText, { paddingTop: rw(5) }]}>{TEXTS.LOGIN_TERM}</Text>
+      </CenterCmp>
+    </Wrapper >
   )
 }
 

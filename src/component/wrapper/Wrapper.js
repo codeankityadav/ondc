@@ -6,9 +6,9 @@ import { gStyles } from '../../Style'
 const Wrapper = (props) => {
     const {
         children,
-        backgroundColor = COLORS.GREY3,
+        backgroundColor = COLORS.RED,
         styles = gStyles.container,
-        barStyle='dark-content'
+        barStyle='light-content'
     } = props
     return (
         <>

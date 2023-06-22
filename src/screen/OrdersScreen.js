@@ -1,15 +1,25 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, FlatList, View } from 'react-native'
 import React from 'react'
-import ButtonCmp from '../component/button/ButtonCmp'
 import Wrapper from '../component/wrapper/Wrapper'
-import { COLORS, ROUTE } from '../utils/constants'
-import { gStyles } from '../Style'
+import { rw } from '../utils/constants'
+import { CenterCmp, HeaderCmp, OrdersBoxCom } from '../component'
+import { ORDERS } from '../utils/constants/Data'
 
-const OrdersScreen = ({navigation}) => {
+const OrdersScreen = ({ navigation }) => {
   return (
-   
-    <Wrapper styles={gStyles.containerCenter} backgroundColor={COLORS.RED} barStyle={'light-content'}>
-      <ButtonCmp onPress={() => navigation.navigate(ROUTE.CART)} title={ROUTE.CART}/>
+
+    <Wrapper >
+      <HeaderCmp isSearch={false} />
+
+      <CenterCmp flexDirection='col' >
+        <FlatList
+          data={ORDERS}
+          renderItem={({ item }) => <OrdersBoxCom item={item} />}
+          keyExtractor={(item) => item.id}
+          contentContainerStyle={{ padding: rw(0.2) }}
+        />
+      </CenterCmp>
+
     </Wrapper>
   )
 }

@@ -1,15 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { COLORS, FONT_FAMILY, FONT_SIZE, ROUTE, rf, rh, rw } from '../utils/constants'
-import Wrapper from '../component/wrapper/Wrapper'
-import LoadingIcon from '../component/loading/LoadingIcon'
 import { gStyles } from '../Style'
-import ButtonCmp from '../component/button/ButtonCmp'
+import { LoadingIcon, Wrapper } from '../component'
 
 const SplashScreen = ({ navigation }) => {
   React.useEffect(() => {
     setTimeout(() => {
-      // navigation.replace(ROUTE.LOGIN)
+      navigation.navigate(ROUTE.LOGIN)
     }, 3000);
     return () => {
       clearTimeout()
@@ -17,12 +15,11 @@ const SplashScreen = ({ navigation }) => {
   }, [])
 
   return (
-    <Wrapper styles={gStyles.containerCenter}>
+    <Wrapper styles={gStyles.containerCenter} backgroundColor={COLORS.WHITE} barStyle="dark-content">
       <View className="flex-col justify-center items-center" style={{ flex: 1, backgroundColor: COLORS.GREY3 }}>
         <LoadingIcon size={70} />
         <Text style={styles.logoText}>ONDC</Text>
         <Text style={styles.mainSubText}>Online Network Digital Chain</Text>
-        <ButtonCmp onPress={() => navigation.navigate(ROUTE.LOGIN)}  title={ROUTE.LOGIN}/>
       </View>
     </Wrapper>
   )

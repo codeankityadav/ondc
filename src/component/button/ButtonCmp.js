@@ -1,27 +1,39 @@
-import { StyleSheet, Text, TouchableOpacity } from 'react-native'
-import React from 'react'
-import { rw } from '../../utils/Dimension'
-import { COLORS, ROUTE } from '../../utils/constants'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import React from 'react' 
 import { gStyles } from '../../Style'
+import { rh, rw } from '../../utils/Dimension'
+import { COLORS } from '../../utils/constants'
 
 const ButtonCmp = (props) => {
-    const { onPress = () => { } } = props
+    const {
+        style = styles.btn,
+        titleStyle = {},
+        title = "Proceed",
+        onPress = () => { }
+    } = props
     return (
         <TouchableOpacity
-            className="flex-row justify-center items-center"
-            style={{
-                minWidth: rw(50),
-                backgroundColor: COLORS.RED,
-                borderRadius: rw(10),
-                paddingVertical: rw(5)
-            }}
-            onPress={onPress}
+            onPress={() => onPress(props.item)}
+            className='justify-center items-center flex-row'
+            style={[styles.btn, style]}
         >
-            <Text style={[gStyles.titleText, { color: COLORS.WHITE }]}>Go to {props.title}</Text>
+            <Text style={[gStyles.btnText, titleStyle]}>{props.title}</Text>
+            {props.children}
         </TouchableOpacity>
     )
 }
 
 export default ButtonCmp
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    btn: {
+        marginTop: rw(5),
+        marginBottom: 0,
+        backgroundColor: COLORS.RED,
+        paddingVertical: rh(1.5),
+        color: COLORS.WHITE,
+        elevation: 5,
+        marginVertical: 0,
+        borderRadius: 10
+    }
+})

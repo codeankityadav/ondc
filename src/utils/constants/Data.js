@@ -1,9 +1,12 @@
+import { rw } from "../Dimension"
+import { AntDesign, FontAwesome } from "../icons/VectorIcon"
+import { COLORS } from "./Colors"
 import { IMAGE } from "./Image"
 
 let RESTAURANT = [
-    { id: 1, title: "Shubdum Chinese Corner", imgSrc: IMAGE.RESTAURANTS.SHUBDUM_CHINESE_CORNER, desc: `Chinese, North Indian`, location: 'Mumbai', distance: 4.0,rating : 4.5 },
-    { id: 2, title: "Domino's Pizza", imgSrc: IMAGE.RESTAURANTS.DOMINOSPIZZA, desc: `Pizzas, Italian`, location: 'Mulund East', distance: 1.0,rating : 4.5 },
-    { id: 3, title: "Mani's Cafe", imgSrc: IMAGE.RESTAURANTS.MANIS_CAFE, desc: `Indian`, location: 'Mulund East', distance: 300,rating : 4.5 },
+    { id: 1, title: "Shubdum Chinese Corner", imgSrc: IMAGE.RESTAURANTS.SHUBDUM_CHINESE_CORNER, desc: `Chinese, North Indian`, location: 'Mumbai', distance: 4.0, rating: 4.5 },
+    { id: 2, title: "Domino's Pizza", imgSrc: IMAGE.RESTAURANTS.DOMINOSPIZZA, desc: `Pizzas, Italian`, location: 'Mulund East', distance: 1.0, rating: 4.5 },
+    { id: 3, title: "Mani's Cafe", imgSrc: IMAGE.RESTAURANTS.MANIS_CAFE, desc: `Indian`, location: 'Mulund East', distance: 300, rating: 4.5 },
     // { id: 1, title: "Manni's Cafe", imgSrc: IMAGE.RESTAURANTS.WHITEDOSA, desc: `Idli, Mendu wada, Maisuri - South Indian` }, 
 ]
 
@@ -25,9 +28,6 @@ let FOOD = [
 
 ]
 
-let CATEGORY = [
-    // { id: 5, title: "Pizza", imgSrc: IMAGE. }
-]
 
 
 let SORTING = [
@@ -72,5 +72,31 @@ let PAYMENT = [
     }
 ]
 
+let ORDERS = [
+    { id: 1, status: 'Ordered', preview: "Arriving by april 26", total: 10 },
+    { id: 2, status: 'Delivered', preview: "Arriving by May 20", total: 5 },
+    { id: 3, status: 'Arriving Today', preview: "Arriving by Jun 12", total: 9 },
+    { id: 4, status: 'Cancelled', preview: "Cancelled on July 25", total: 2 },
+    { id: 5, status: 'Delivered', preview: "Arriving by May 20", total: 5 },
+    { id: 6, status: 'Arriving Today', preview: "Arriving by Jun 12", total: 9 },
+    { id: 7, status: 'Cancelled', preview: "Cancelled on July 25", total: 2 },
+];
 
-export { RESTAURANT, FOOD, CATEGORY, SORTING, ADDRESS, PAYMENT }
+let ORDERS_LINKS = [
+    { id: 1, title: 'My Orders', navigateTo: "", icon: <AntDesign name="profile" size={rw(6)} color={COLORS.LIGHT_BLUE} /> },
+    { id: 2, title: 'Delivery Address', navigateTo: "", icon: <AntDesign name="fork" size={rw(6)} color={COLORS.LIGHT_BLUE} /> },
+    { id: 3, title: 'Sign Out', navigateTo: "", icon: <AntDesign name="logout" size={rw(6)} color={COLORS.LIGHT_BLUE} /> },
+]
+
+let CATEGORY = [
+    { id: 1, title: 'Dosa', navigateTo: "", icon: <AntDesign name="profile" size={rw(6)} color={COLORS.LIGHT_BLUE} /> },
+    { id: 2, title: 'Paneer', navigateTo: "", icon: <AntDesign name="fork" size={rw(6)} color={COLORS.LIGHT_BLUE} /> },
+    { id: 3, title: 'South Indian', navigateTo: "", icon: <AntDesign name="logout" size={rw(6)} color={COLORS.LIGHT_BLUE} /> },
+    { id: 4, title: 'Italian', navigateTo: "", icon: <AntDesign name="logout" size={rw(6)} color={COLORS.LIGHT_BLUE} /> },
+    { id: 5, title: 'Chinese', navigateTo: "", icon: <AntDesign name="logout" size={rw(6)} color={COLORS.LIGHT_BLUE} /> },
+    { id: 6, title: 'Vada Pav', navigateTo: "", icon: <AntDesign name="logout" size={rw(6)} color={COLORS.LIGHT_BLUE} /> },
+    { id: 7, title: 'Pizza', navigateTo: "", icon: <AntDesign name="logout" size={rw(6)} color={COLORS.LIGHT_BLUE} /> },
+]
+
+
+export { RESTAURANT, FOOD, CATEGORY, SORTING, ADDRESS, PAYMENT, ORDERS, ORDERS_LINKS }

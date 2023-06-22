@@ -1,15 +1,22 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, FlatList } from 'react-native'
 import React from 'react'
-import ButtonCmp from '../component/button/ButtonCmp'
 import Wrapper from '../component/wrapper/Wrapper'
-import { COLORS, ROUTE } from '../utils/constants'
+import { COLORS, RESTAURANT, rw } from '../utils/constants'
 import { gStyles } from '../Style'
+import { CenterCmp, RestaurantBoxCmp } from '../component'
 
-const RestaurantScreen = ({navigation}) => {
+const RestaurantScreen = ({ navigation }) => {
   return (
-   
-    <Wrapper styles={gStyles.containerCenter} backgroundColor={COLORS.RED} barStyle={'light-content'}>
-      <ButtonCmp onPress={() => navigation.navigate(ROUTE.CATEGORY)} title={ROUTE.CATEGORY}/>
+
+    <Wrapper >
+      <CenterCmp style={{ paddingHorizontal: rw(5) }}>
+        <FlatList
+          data={RESTAURANT}
+          renderItem={({ item }) => <RestaurantBoxCmp item={item} />}
+          keyExtractor={(item) => item.id}
+          contentContainerStyle={{ padding: rw(0.2) }}
+        />
+      </CenterCmp>
     </Wrapper>
   )
 }

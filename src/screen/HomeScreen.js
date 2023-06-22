@@ -5,13 +5,14 @@ import { gStyles } from '../Style'
 import ButtonCmp from '../component/button/ButtonCmp'
 import Wrapper from '../component/wrapper/Wrapper'
 import { COLORS, ROUTE } from '../utils/constants'
+import HomeBottomTab from '../navigation/tab/HomeBottomTab'
 
 
-const HomeScreen = ({navigation}) => { 
+const HomeScreen = ({ navigation }) => {
   return (
-    
-    <Wrapper styles={gStyles.containerCenter} backgroundColor={COLORS.RED} barStyle={'light-content'}>
-      <ButtonCmp onPress={() => navigation.navigate(ROUTE.FOOD)} title={ROUTE.FOOD}/>
+
+    <Wrapper styles={gStyles.containerCenter}>
+      <ButtonCmp onPress={() => navigation.navigate(ROUTE.FOOD)} title={ROUTE.FOOD} />
     </Wrapper>
   )
 }
