@@ -5,8 +5,7 @@ import { Entypo, FontAwesome } from '../utils/icons/VectorIcon'
 import { gStyles } from '../Style'
 import { rh, rw } from '../utils/Dimension'
 import { COLORS, FONT_FAMILY } from '../utils/constants'
-import { ORDERS_LINKS } from '../utils/constants/Data'
-import { IMAGE } from '../utils/constants/Image'
+import { ORDERS_LINKS } from '../utils/constants/Data' 
 import ImageTextRowCmp from '../component/ImageTextRowCmp'
 
 const AccountScreen = () => {

@@ -18,6 +18,7 @@ import CartBoxCmp from './CartBoxCmp'
 import OrdersBoxCom from './OrdersBoxCom'
 import CategoryBoxCmp from './CategoryBoxCmp'
 import ImageTextRowCmp from './ImageTextRowCmp'
+import BottomSheetCmp from './BottomSheetCmp'
 
 export {
     ButtonCmp,
@@ -35,4 +36,5 @@ export {
     BottomFullBtnCmp,
     ImageTextRowCmp,
     CategoryBoxCmp,
+    BottomSheetCmp
 }

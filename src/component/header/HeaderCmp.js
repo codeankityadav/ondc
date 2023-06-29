@@ -1,16 +1,22 @@
 import { StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import CenterCmp from '../wrapper/CenterCmp'
 import { Feather, FontAwesome, Ionicons, Octicons } from '../../utils/icons/VectorIcon'
 import { rh, rw } from '../../utils/Dimension'
 import { COLORS, ROUTE, TEXTS } from '../../utils/constants'
 import { gStyles } from '../../Style'
+import { useDispatch, useSelector } from 'react-redux'
+import { setSearchKeyword } from '../../redux/slices/homeSlice'
 
 const HeaderCmp = (props) => {
-    const { isSearch = false,placeholder ='Search' } = props
+    const { isSearch = false, placeholder = 'Search' } = props
     const navigation = useNavigation()
-    const route = useRoute(); 
+    const route = useRoute();
+    const dispatch = useDispatch()
+    const { searchKeyword } = useSelector(state => state.home)
+    console.log('searchKeyword', searchKeyword)
+
     return (
         <>
             <CenterCmp flexDirection='col' className="flex-row justify-between items-center" style={styles.header}>
@@ -26,8 +32,10 @@ const HeaderCmp = (props) => {
                             <TextInput style={{
                                 color: COLORS.GREY
                             }}
-                            placeholder={placeholder}
-                            placeholderTextColor={COLORS.GREY}
+                                value={searchKeyword}
+                                onChangeText={(text) => dispatch(setSearchKeyword(text))}
+                                placeholder={placeholder}
+                                placeholderTextColor={COLORS.GREY}
                             />
                         </TouchableOpacity>
                         :

@@ -1,19 +1,48 @@
 import { StyleSheet, Image, TouchableOpacity, View, Text } from 'react-native'
-import React from 'react' 
+import React, { useEffect, useState } from 'react'
 import { rh, rw } from '../utils/Dimension'
 import { COLORS, FONT_FAMILY } from '../utils/constants'
 import { gStyles } from '../Style'
 import ButtonCmp from './button/ButtonCmp'
+import { useDispatch, useSelector } from 'react-redux'
+import { setCart, setRemoveCartById } from '../redux/slices/homeSlice'
 
 const FoodBoxCmp = (props) => {
   const { item } = props
+  const { cart } = useSelector(state => state.home)
+  const [isInCart, setIsInCart] = useState()
+  const dispatch = useDispatch()
+
+  const onAddToCart = (singleItem) => {
+    const index = cart.findIndex(food => food.id == singleItem.id)
+    if (index == -1) {
+      dispatch(setCart({ ...singleItem, count: 1 })); 
+    }
+  }
+
+  const onCancelToCart = (singleItem) => {
+    dispatch(setRemoveCartById({ id: singleItem.id }))
+    console.log('cart', cart)
+  }
+
+  useEffect(() => {
+    const index = cart.findIndex(food => food.id == item.id)
+    if (index >= 0) {
+      setIsInCart(false)
+    } else {
+      setIsInCart(true)
+    }
+
+  }, [cart])
   return (
-    <TouchableOpacity className="flex-row" style={{
-      paddingVertical: rh(1.4),
-      borderBottomWidth: rw(0.2),
-      borderBottomColor: COLORS.GREY2,
-      borderStyle : 'dashed'
-    }}>
+    <TouchableOpacity
+      onPress={() => props.setIsVisible(true)}
+      className="flex-row" style={{
+        paddingVertical: rh(1.4),
+        borderBottomWidth: rw(0.2),
+        borderBottomColor: COLORS.GREY2,
+        borderStyle: 'dashed'
+      }}>
       <Image
         source={{ uri: item.imgSrc }}
         resizeMethod='auto'
@@ -29,11 +58,14 @@ const FoodBoxCmp = (props) => {
           paddingVertical: rw(2),
           paddingHorizontal: rw(5),
         }}>
-        <View style={{alignSelf : 'flex-start'}}>
+        <View style={{ alignSelf: 'flex-start' }}>
           <Text style={[gStyles.titleText, { textTransform: 'capitalize' }]}>{item.title}</Text>
           <Text style={[gStyles.titleText, { fontFamily: FONT_FAMILY.OUTFIT.REGULAR }]}>₹ {item.price}</Text>
         </View>
-        <ButtonCmp title="ADD" style={{ width: rw(20), alignSelf: 'flex-end', paddingVertical: rw(1) }} />
+        {isInCart ?
+          <ButtonCmp title="ADD" onPress={() => onAddToCart(item)} style={{ width: rw(20), alignSelf: 'flex-end', paddingVertical: rw(1) }} />
+          : <ButtonCmp title="CANCEL" onPress={() => onCancelToCart(item)} style={{ width: rw(20), alignSelf: 'flex-end', paddingVertical: rw(1) }} />
+        }
       </View>
     </TouchableOpacity>
   )

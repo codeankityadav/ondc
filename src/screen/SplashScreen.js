@@ -1,11 +1,19 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { COLORS, FONT_FAMILY, FONT_SIZE, ROUTE, rf, rh, rw } from '../utils/constants'
+import { COLORS, FONT_FAMILY, FONT_SIZE, FOOD, RESTAURANT, ROUTE, rf, rh, rw } from '../utils/constants'
 import { gStyles } from '../Style'
 import { LoadingIcon, Wrapper } from '../component'
+import { useDispatch } from 'react-redux'
+import { setFood, setRestaurant } from '../redux/slices/homeSlice'
 
 const SplashScreen = ({ navigation }) => {
+
+  const dispatch = useDispatch()
+
+
   React.useEffect(() => {
+    dispatch(setFood(FOOD))
+    dispatch(setRestaurant(RESTAURANT))
     setTimeout(() => {
       navigation.navigate(ROUTE.LOGIN)
     }, 3000);

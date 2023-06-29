@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
         marginVertical: 0,
         borderRadius: 10,
         borderColor: COLORS.RED,
-        borderWidth: rw(0.5),
+        borderWidth: rw(0.2),
         color: COLORS.GREY2,
         fontSize: FONT_SIZE.LOGO_DESC,
     }
