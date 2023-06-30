@@ -5,13 +5,14 @@ import { AccountScreen, CategoryScreen, OrdersScreen, ProfileScreen } from '../.
 import { COLORS, FONT_FAMILY, ROUTE, rw } from '../../utils/constants';
 import HomeTopTab from './HomeTopTab';
 import { HeaderCmp, Wrapper } from '../../component';
-import { FontAwesome } from '../../utils/icons/VectorIcon'; 
+import { AntDesign, MaterialCommunityIcons, MaterialIcons } from '../../utils/icons/VectorIcon';
+import { useSelector } from 'react-redux';
 
 const Tab = createBottomTabNavigator();
 
 const HomeBottomTab = () => {
-
-
+    const [showAlert, setShowAlert] = React.useState(true)
+    const { address } = useSelector(state => state.home)
 
 
     return (
@@ -23,7 +24,6 @@ const HomeBottomTab = () => {
                 // tabBarIcon: ({ tintColor }) => (
                 //     <FontAwesome name="user-circle" size={rw(25)} color={tintColor} />
                 // ),
-                tabBarIcon: ({ tintColor }) => { return (<FontAwesome name="user-circle" size={rw(25)} color={tintColor} />) },
                 tabBarLabelStyle: {
                     fontFamily: FONT_FAMILY.OUTFIT.BOLD,
                     textTransform: 'capitalize'
@@ -34,21 +34,57 @@ const HomeBottomTab = () => {
                 tabBarIndicatorStyle: {
                     backgroundColor: COLORS.RED,
                 },
-                tabBarOptions: {
-                    showIcon: true
-                },
             }}
             >
-                <Tab.Screen name={ROUTE.HOME} component={HomeTopTab} />
-                <Tab.Screen name={ROUTE.CATEGORY} component={CategoryScreen} />
-                <Tab.Screen name={ROUTE.ACCOUNT} component={AccountScreen} />
-                <Tab.Screen name={ROUTE.ORDERS} component={OrdersScreen} />
+                <Tab.Screen name={ROUTE.HOME} component={HomeTopTab}
+                    options={{
+                        tabBarIcon: ({ tintColor = COLORS.RED }) => {
+                            return (
+                                <AntDesign name="home" size={rw(5)} color={tintColor} />
+                            )
+                        }
+                    }} />
+                <Tab.Screen name={ROUTE.CATEGORY} component={CategoryScreen} options={{
+                    tabBarIcon: ({ tintColor = COLORS.RED }) => {
+                        return (
+                            <MaterialIcons name="category" size={rw(5)} color={tintColor} />)
+                    }
+                }} />
+                {/* <Tab.Screen name={ROUTE.ACCOUNT} component={AccountScreen} options={{
+                    tabBarIcon: ({ tintColor = COLORS.RED }) => {
+                        return (
+                            <FontAwesome name="user-circle" size={rw(5)} color={tintColor} />)
+                    }
+                }} /> */}
+                <Tab.Screen name={ROUTE.ORDERS} component={OrdersScreen} options={{
+                    tabBarIcon: ({ tintColor = COLORS.RED }) => {
+                        return (
+                            <MaterialCommunityIcons name="order-bool-descending-variant" size={rw(5)} color={tintColor} />
+                        )
+                    }
+                }} />
             </Tab.Navigator>
+
+            {/* {address.length == 0 && <AwesomeAlertCmp
+                showAlert={showAlert}
+                setShowAlert={setShowAlert}
+                messageStyle={styles.messageStyle}
+                titleStyle={styles.titleStyle}
+                title="Check Avaibility"
+                confirmText="Check"
+            // message={}
+            />} */}
+
         </Wrapper>
+
 
     )
 }
 
 export default HomeBottomTab
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    messageStyle: {
+        // paddingHorizontal: rw(20)
+    }
+})

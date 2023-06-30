@@ -2,10 +2,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { COLORS, FONT_FAMILY, ROUTE, rw } from '../../utils/constants';
 import { AccountScreen, AddressScreen, OrdersScreen, ProfileScreen } from '../../screen';
 import HomeBottomTab from '../tab/HomeBottomTab';
-import CustomDrawer from './CustomDrawer';
-import { AntDesign, Entypo } from '../../utils/icons/VectorIcon';
-import { ImageTextRowCmp } from '../../component';
-import { StyleSheet, Text, TouchableOpacity } from 'react-native'
+import CustomDrawer from './CustomDrawer'; 
 
 const Drawer = createDrawerNavigator();
 
@@ -29,7 +26,7 @@ function HomeDrawer() {
                 options={{
                     title: "Home"
                 }} />
-            <Drawer.Screen name={ROUTE.ORDERS} component={OrdersScreen} />
+            {/* <Drawer.Screen name={ROUTE.ORDERS} component={OrdersScreen} /> */}
             <Drawer.Screen name={ROUTE.ADDRESS} component={AddressScreen} />
             <Drawer.Screen name={ROUTE.PROFILE} component={ProfileScreen} />
             <Drawer.Screen name={ROUTE.ACCOUNT} component={AccountScreen} />

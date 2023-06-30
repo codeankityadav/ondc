@@ -1,4 +1,4 @@
-import { StatusBar, StyleSheet, View } from 'react-native'
+import { StatusBar, View } from 'react-native'
 import React from 'react' 
 import { COLORS } from '../../utils/constants'
 import { gStyles } from '../../Style'
@@ -22,6 +22,4 @@ const Wrapper = (props) => {
 
 export default Wrapper
 
-const styles = StyleSheet.create({
-
-})
+ 

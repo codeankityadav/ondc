@@ -1,5 +1,6 @@
 let COLORS = {
     RED: "#ff3d5f",
+    // RED: "rgba(223,36,29,.9)",
     WHITE: "#ffffff",
     BLACK: "#000000",
     GREY : "#8e8e8e",

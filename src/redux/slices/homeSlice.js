@@ -6,7 +6,9 @@ const loginSlice = createSlice({
         food: [],
         restaurant: [],
         searchKeyword: "",
-        cart: []
+        cart: [],
+        address: [],
+        profile: {}
     },
     reducers: {
         setLoading: (state, action) => {
@@ -26,6 +28,28 @@ const loginSlice = createSlice({
         setCart: (state, action) => {
             state.cart.push(action.payload)
         },
+        setAddress: (state, action) => {
+            state.address.push(action.payload);
+        },
+        removeAddress: (state, action) => {
+            let prevAdrr = JSON.parse(JSON.stringify(current(state).address))
+            const data = prevAdrr.filter((d) => d.id !== action.payload)
+            state.address = data
+        },
+        setPrimaryAddress: (state, action) => {
+            let prevAdrr = JSON.parse(JSON.stringify(current(state).address))
+
+            for (let i = 0; i < prevAdrr.length; i++) {
+                prevAdrr[i].isPrimary = false
+            }
+            for (let i = 0; i < prevAdrr.length; i++) {
+                const element = prevAdrr[i];
+                if (i == action.payload) {
+                    prevAdrr[action.payload].isPrimary = true
+                }
+            }
+            state.address = prevAdrr
+        },
         setRemoveCartById: (state, action) => {
             let prevCart = JSON.parse(JSON.stringify(current(state).cart))
             const index = prevCart.findIndex((obj) => obj.id == action.payload.id)
@@ -34,10 +58,27 @@ const loginSlice = createSlice({
             }
             state.cart = prevCart
         },
-
+        resetAddress: (state, action) => {
+            state.address = []
+        },
+        setProfile: (state, action) => {
+            state.profile = action.payload
+        },
 
     }
 })
 const loginReducer = loginSlice.reducer;
-export const { setLoading, setFood, setSearchKeyword, setRestaurant, setCart, setRemoveCartById } = loginSlice.actions
+export const {
+    setLoading,
+    setFood,
+    setSearchKeyword,
+    setRestaurant,
+    setCart,
+    setRemoveCartById,
+    setAddress,
+    setPrimaryAddress,
+    resetAddress,
+    removeAddress,
+    setProfile
+} = loginSlice.actions
 export default loginReducer;

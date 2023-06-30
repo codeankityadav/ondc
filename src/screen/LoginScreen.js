@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Text, View } from 'react-native'
 import React from 'react'
 import { gStyles } from '../Style'
 import { COLORS, FONT_SIZE, ROUTE, TEXTS, rw } from '../utils/constants'
@@ -23,5 +23,3 @@ const LoginScreen = ({ navigation }) => {
 }
 
 export default LoginScreen
-
-const styles = StyleSheet.create({})

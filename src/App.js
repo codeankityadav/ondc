@@ -1,4 +1,3 @@
-import { StyleSheet, Text, View } from 'react-native'
 import React from 'react' 
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'; 
@@ -19,5 +18,3 @@ const App = () => {
 }
 
 export default App
-
-const styles = StyleSheet.create({})

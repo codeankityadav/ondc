@@ -1,111 +1,124 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, Text, View, FlatList } from 'react-native'
 import React, { useState } from 'react'
-import { BottomBtnCmp, BottomFullBtnCmp, BottomSheetCmp, ButtonCmp, CenterCmp, HeaderCmp, TextInputCmp, Wrapper } from '../component'
+import { BottomFullBtnCmp, BottomSheetCmp, ButtonCmp, CenterCmp, HeaderCmp, TextInputCmp, Wrapper } from '../component'
 import { rh, rw } from '../utils/Dimension'
-import { COLORS, FONT_FAMILY } from '../utils/constants'
-import { IMAGE } from '../utils/constants/Image'
+import { COLORS } from '../utils/constants'
 import { gStyles } from '../Style'
-import { Entypo } from '../utils/icons/VectorIcon'
+import AddressBoxCmp from '../component/AddressBoxCmp'
+import { useDispatch, useSelector } from 'react-redux'
+import { setAddress } from '../redux/slices/homeSlice'
+import Lottie from 'lottie-react-native';
 
 const AddressScreen = () => {
-
+ 
   const [isVisible, setIsVisible] = useState(false)
+  const dispatch = useDispatch()
+  const [formValues, setFormValues] = useState({
+    id: new Date().valueOf(),
+    // id : id,
+    name: "",
+    full_address: "",
+    pincode: "",
+    isPrimary: false
+  })
+
+  const { address } = useSelector(state => state.home)
 
   return (
     <>
       <Wrapper>
         <HeaderCmp isSearch={false} />
+        {/* <BottomFullBtnCmp title="Add New Address" onPress={() => setIsVisible(!isVisible)} style={{ backgroundColor: COLORS.GREY3, elevation: 0 }} /> */}
 
-        <CenterCmp>
-          <TouchableOpacity
-            onPress={() => setIsVisible(!isVisible)}
-            style={{
-              minWidth: rw(90),
-              paddingVertical: rw(5),
-              paddingHorizontal: rw(3),
-              borderRadius: rw(5),
-              // borderColor: COLORS.GREY2,
-              // borderWidth: rw(0.2),
-              marginVertical: rw(5),
-              elevation: 2,
-              backgroundColor: COLORS.WHITE,
-            }}
-          >
-            <View className="flex-row justify-between items-center">
-              <View className="flex-row items-center">
-                <Text style={gStyles.titleText}>Ankit Yadav</Text>
-                <View>
-                  <Text style={[gStyles.titleDescText,
-                  {
-                    backgroundColor: COLORS.LIGHT_BLUE,
-                    paddingVertical: rw(0.5),
-                    color: COLORS.WHITE,
-                    paddingHorizontal: rw(3),
-                    borderRadius: rw(2),
-                    marginLeft: rw(3)
-                  }
-                  ]}>Home</Text>
-                </View>
+
+        {/* <View style={{ paddingHorizontal: rw(15), marginTop: rw(5), flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center' }}>
+          <Ionicons name="add-circle" size={rw(15)} color={COLORS.GREEN} style={{ alignItems: 'flex-end' }} onPress={() => setIsVisible(!isVisible)} />
+        </View> */}
+
+        {
+          address.length > 0 ?
+            <>
+              <CenterCmp flexDirection='column'>
+                <FlatList
+                  data={address}
+                  renderItem={({ item }) => <AddressBoxCmp item={item} setIsVisible={setIsVisible} isVisible={isVisible} />}
+                  keyExtractor={(item) => item.id}
+                  contentContainerStyle={{ padding: rw(0.2) }}
+                />
+
+              </CenterCmp>
+            </>
+            :
+            <>
+              <View style={gStyles.containerCenter}>
+                <Lottie source={require('../assets/lottie/not-available.json')} style={{ width: rw(90), height: rw(90) }} duration={5000} autoPlay loop />
+                <Text style={[gStyles.titleText, { paddingTop: rw(5), textAlign: 'center', color: COLORS.LIGHT_BLUE }]}>Please Add New Address !</Text>
               </View>
-              <Entypo name="dots-three-vertical" size={rw(4)} color={COLORS.BLACK} />
-            </View>
-            <View style={{ width: rw(65), marginTop: rw(3) }}>
-              <Text style={gStyles.titleDescText}>67, azada nagar. mithagart road, mullund east, mumbai 400081</Text>
-              <Text style={gStyles.titleDescText}>Phone: 95943713977</Text>
-              <Text style={[gStyles.titleDescText, { fontFamily: FONT_FAMILY.OUTFIT.MEDIUM, color: COLORS.BLACK, marginTop: rw(3) }]}>Default Address</Text>
+            </>
+        }
 
-            </View>
-          </TouchableOpacity>
-        </CenterCmp>
+
+
+        {/* <View style={{ paddingHorizontal: rw(7) }}>
+          <ButtonCmp title="Add" style={{ minWidth: rw(70), marginTop: rw(5), backgroundColor: COLORS.GREEN }} onPress={() => setIsVisible(!isVisible)} />
+        </View> */}
       </Wrapper>
 
       <BottomFullBtnCmp title="Add New Address" onPress={() => setIsVisible(!isVisible)} />
+      {/* {prevRoute.name === 'Cart' &&
+        <BottomFullBtnCmp title="Place Order" onPress={() => navigation.navigate(ROUTE.ORDER_REVIEW)} />
+      } */}
 
 
       <BottomSheetCmp setIsVisible={setIsVisible} isVisible={isVisible}>
-        <View style={{ minHeight: rh(40), backgroundColor: COLORS.WHITE, paddingHorizontal: rw(7), borderTopLeftRadius: rw(5), borderTopRightRadius: rw(5) }}>
-          <View style={{ minWidth: rw(80), marginTop: rh(5) }} >
-            <Text style={[gStyles.titleDescText]}>Name</Text>
-            <TextInputCmp style={{ marginTop: 0, borderColor: COLORS.GREY2 }} />
+        <View style={{ minHeight: rh(40), backgroundColor: COLORS.WHITE, paddingHorizontal: rw(7), paddingTop: rh(3), borderTopLeftRadius: rw(5), borderTopRightRadius: rw(5) }}>
+          <View style={styles.viewStyle} >
+            <Text style={[gStyles.titleDescText]}>Piconde</Text>
+            <TextInputCmp
+              keyboardType="numeric"
+              maxLength={6}
+              style={styles.inputStyle}
+              onChangeText={(text) => setFormValues({ ...formValues, pincode: text, id: new Date().valueOf() })} />
           </View>
-
-          <View className="flex-row justify-between items-center" >
-            <View style={{ minWidth: rw(40), marginTop: rh(1) }} >
-              <Text style={[gStyles.titleDescText]}>Room no.</Text>
-              <TextInputCmp style={{ marginTop: 0, borderColor: COLORS.GREY2 }} />
-            </View>
-            <View style={{ minWidth: rw(40), marginTop: rh(1) }} >
-              <Text style={[gStyles.titleDescText]}>Area/Building</Text>
-              <TextInputCmp style={{ marginTop: 0, borderColor: COLORS.GREY2 }} />
-            </View>
-          </View>
-
-          <View className="flex-row justify-between items-center" >
-            <View style={{ minWidth: rw(40), marginTop: rh(1) }} >
-              <Text style={[gStyles.titleDescText]}>Town</Text>
-              <TextInputCmp style={{ marginTop: 0, borderColor: COLORS.GREY2 }} />
-            </View>
-            <View style={{ minWidth: rw(40), marginTop: rh(1) }} >
-              <Text style={[gStyles.titleDescText]}>city</Text>
-              <TextInputCmp style={{ marginTop: 0, borderColor: COLORS.GREY2 }} />
+          <View>
+            <View style={styles.viewStyle} >
+              <Text style={[gStyles.titleDescText]}>Name</Text>
+              <TextInputCmp
+                style={styles.inputStyle}
+                onChangeText={(text) => setFormValues({ ...formValues, name: text })} />
             </View>
           </View>
-
-          <View className="flex-row justify-between items-center" >
-            <View style={{ minWidth: rw(40), marginTop: rh(1) }} >
-              <Text style={[gStyles.titleDescText]}>State</Text>
-              <TextInputCmp style={{ marginTop: 0, borderColor: COLORS.GREY2 }} />
-            </View>
-            <View style={{ minWidth: rw(40), marginTop: rh(1) }} >
-              <Text style={[gStyles.titleDescText]}>Pincode</Text>
-              <TextInputCmp style={{ marginTop: 0, borderColor: COLORS.GREY2 }} />
+          <View>
+            <View style={styles.viewStyle} >
+              <Text style={[gStyles.titleDescText]}>Full Address</Text>
+              <TextInputCmp
+                style={styles.inputStyle}
+                onChangeText={(text) => setFormValues({ ...formValues, full_address: text })} />
             </View>
           </View>
 
           <View
             className="flex-row justify-center items-center"
             style={{ backgroundColor: COLORS.WHITE, paddingHorizontal: rw(7), paddingVertical: rw(10) }}>
-            <ButtonCmp title="Update" style={{ minWidth: rw(70), marginTop: rw(0) }} />
+            <ButtonCmp
+              title="Submit"
+              style={{ minWidth: rw(85), marginTop: rw(0), backgroundColor: COLORS.GREEN }}
+              onPress={() => {
+                if (formValues.pincode.length > 0 && formValues.name.length > 0 && formValues.full_address.length > 0) {
+                  dispatch(setAddress(formValues))
+                  setFormValues({
+                    id: new Date().valueOf(),
+                    name: "",
+                    full_address: "",
+                    pincode: "",
+                    isPrimary: false
+                  })
+                  setIsVisible(false)
+                } else {
+                  alert("Please fill all fields.")
+                }
+
+              }} />
           </View>
 
 
@@ -118,4 +131,7 @@ const AddressScreen = () => {
 
 export default AddressScreen
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  inputStyle: { marginTop: 0, borderColor: COLORS.GREY2 },
+  viewStyle: { minWidth: rw(40), marginTop: rh(2) }
+})

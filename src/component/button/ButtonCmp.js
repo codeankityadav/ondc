@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity,  } from 'react-native'
 import React from 'react' 
 import { gStyles } from '../../Style'
 import { rh, rw } from '../../utils/Dimension'
@@ -9,7 +9,7 @@ const ButtonCmp = (props) => {
         style = styles.btn,
         titleStyle = {},
         title = "Proceed",
-        onPress = () => { }
+        onPress = () => { }, 
     } = props
     return (
         <TouchableOpacity

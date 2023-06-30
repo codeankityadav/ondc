@@ -1,15 +1,15 @@
-import { StyleSheet, View, FlatList } from 'react-native'
+import {  FlatList } from 'react-native'
 import React from 'react'
-import { CenterCmp, HeaderCmp, ImageTextRowCmp, Wrapper } from '../component'
-import { rh, rw } from '../utils/Dimension'
-import { CATEGORY, ORDERS_LINKS } from '../utils/constants/Data'
+import { CategoryBoxCmp, Wrapper } from '../component'
+import { rw } from '../utils/Dimension'
+import { CATEGORY } from '../utils/constants/Data'
 
 const CategoryScreen = () => {
   return (
     <Wrapper>
-      <HeaderCmp isSearch={false} />
+      {/* <HeaderCmp isSearch={false} /> */}
 
-      <CenterCmp flexDirection={'col'}>
+      {/* <CenterCmp flexDirection={'col'}>
         <FlatList
           data={CATEGORY}
           renderItem={({ item }) => <ImageTextRowCmp title={item.title} icon={item.icon} />}
@@ -20,19 +20,19 @@ const CategoryScreen = () => {
             width: rw(100)
           }}
         />
-      </CenterCmp>
+      </CenterCmp> */}
 
 
-      {/* <FlatList
-        numColumns={4}
-        data={CATEGORY} 
+      <FlatList
+        numColumns={3}
+        data={CATEGORY}
         renderItem={({ item }) => <CategoryBoxCmp title={item.title} imgSrc={item.imgSrc} />}
         keyExtractor={(item) => item.id}
         contentContainerStyle={{
-          padding: rw(0.2),
+          padding: rw(5),
           width: rw(100)
         }}
-      /> */}
+      />
 
 
     </Wrapper>
@@ -41,4 +41,3 @@ const CategoryScreen = () => {
 
 export default CategoryScreen
 
-const styles = StyleSheet.create({})

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import {  Text, View } from 'react-native'
 import Lottie from 'lottie-react-native';
 import React from 'react' 
 import { rw } from '../../utils/Dimension';
@@ -11,5 +11,3 @@ const LoadingIcon = (props) => {
 }
 
 export default LoadingIcon
-
-const styles = StyleSheet.create({})

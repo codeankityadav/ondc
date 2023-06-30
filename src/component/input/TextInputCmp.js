@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { StyleSheet,  TextInput,  } from 'react-native'
 import React from 'react'
 import { COLORS, FONT_SIZE, rh, rw } from '../../utils/constants'
 
@@ -7,6 +7,7 @@ const TextInputCmp = (props) => {
         style = styles.textInput,
         title = "Proceed",
         keyboardType = 'default',
+        // onChangeText = () => { },
         ...restProps
     } = props
     return (
@@ -16,6 +17,7 @@ const TextInputCmp = (props) => {
             style={[styles.textInput, style]}
             keyboardType={keyboardType}
             placeholderTextColor={COLORS.GREY}
+            // onChangeText={onChangeText}
             {...restProps}
             cursorColor={COLORS.GREY}
         />

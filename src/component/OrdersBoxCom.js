@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Image,  Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { rh, rw } from '../utils/Dimension'
 import { COLORS, FONT_FAMILY } from '../utils/constants'
@@ -45,5 +45,3 @@ const OrdersBoxCom = ({ item }) => {
 }
 
 export default OrdersBoxCom
-
-const styles = StyleSheet.create({})

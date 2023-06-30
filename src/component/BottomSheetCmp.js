@@ -1,4 +1,3 @@
-import { StyleSheet } from 'react-native'
 import React from 'react'
 import { BottomSheet } from '@rneui/themed'; 
 
@@ -22,5 +21,3 @@ const BottomSheetCmp = (props) => {
 }
 
 export default BottomSheetCmp
-
-const styles = StyleSheet.create({})

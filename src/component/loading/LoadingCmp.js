@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import {  Text, View } from 'react-native'
 import React from 'react'
 import LoadingIcon from './LoadingIcon'
 import { rh } from '../../utils/Dimension'
@@ -17,5 +17,3 @@ const LoadingCmp = () => {
 }
 
 export default LoadingCmp
-
-const styles = StyleSheet.create({})

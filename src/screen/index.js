@@ -1,6 +1,5 @@
 import SplashScreen from './SplashScreen'
 import LoginScreen from './LoginScreen'
-import HomeScreen from './HomeScreen'
 import RestaurantScreen from './RestaurantScreen'
 import FoodScreen from './FoodScreen'
 import CartScreen from './CartScreen'
@@ -18,7 +17,6 @@ import AccountScreen from './AccountScreen'
 export {
     SplashScreen,
     LoginScreen,
-    HomeScreen,
     RestaurantScreen,
     FoodScreen,
     CartScreen,

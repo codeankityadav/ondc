@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { COLORS, FONT_FAMILY, FONT_SIZE, FOOD, RESTAURANT, ROUTE, rf, rh, rw } from '../utils/constants'
+import { COLORS, FONT_FAMILY, FONT_SIZE, FOOD, RESTAURANT, ROUTE} from '../utils/constants'
 import { gStyles } from '../Style'
 import { LoadingIcon, Wrapper } from '../component'
 import { useDispatch } from 'react-redux'
@@ -15,7 +15,7 @@ const SplashScreen = ({ navigation }) => {
     dispatch(setFood(FOOD))
     dispatch(setRestaurant(RESTAURANT))
     setTimeout(() => {
-      navigation.navigate(ROUTE.LOGIN)
+      navigation.navigate(ROUTE.HOME_DRAWER)
     }, 3000);
     return () => {
       clearTimeout()

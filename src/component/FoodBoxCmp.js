@@ -1,4 +1,4 @@
-import { StyleSheet, Image, TouchableOpacity, View, Text } from 'react-native'
+import { Image, TouchableOpacity, View, Text } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { rh, rw } from '../utils/Dimension'
 import { COLORS, FONT_FAMILY } from '../utils/constants'
@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setCart, setRemoveCartById } from '../redux/slices/homeSlice'
 
 const FoodBoxCmp = (props) => {
-  const { item } = props
+  const { item, setIsVisible = () => { } } = props
   const { cart } = useSelector(state => state.home)
   const [isInCart, setIsInCart] = useState()
   const dispatch = useDispatch()
@@ -16,13 +16,13 @@ const FoodBoxCmp = (props) => {
   const onAddToCart = (singleItem) => {
     const index = cart.findIndex(food => food.id == singleItem.id)
     if (index == -1) {
-      dispatch(setCart({ ...singleItem, count: 1 })); 
+      dispatch(setCart({ ...singleItem, count: 1 }));
     }
   }
 
+
   const onCancelToCart = (singleItem) => {
     dispatch(setRemoveCartById({ id: singleItem.id }))
-    console.log('cart', cart)
   }
 
   useEffect(() => {
@@ -36,7 +36,7 @@ const FoodBoxCmp = (props) => {
   }, [cart])
   return (
     <TouchableOpacity
-      onPress={() => props.setIsVisible(true)}
+      // onPress={() => setIsVisible(true)}s
       className="flex-row" style={{
         paddingVertical: rh(1.4),
         borderBottomWidth: rw(0.2),
@@ -63,8 +63,8 @@ const FoodBoxCmp = (props) => {
           <Text style={[gStyles.titleText, { fontFamily: FONT_FAMILY.OUTFIT.REGULAR }]}>₹ {item.price}</Text>
         </View>
         {isInCart ?
-          <ButtonCmp title="ADD" onPress={() => onAddToCart(item)} style={{ width: rw(20), alignSelf: 'flex-end', paddingVertical: rw(1) }} />
-          : <ButtonCmp title="CANCEL" onPress={() => onCancelToCart(item)} style={{ width: rw(20), alignSelf: 'flex-end', paddingVertical: rw(1) }} />
+          <ButtonCmp title="ADD" onPress={() => onAddToCart(item)} style={{ paddingHorizontal: rw(5), alignSelf: 'flex-end', paddingVertical: rw(2), backgroundColor: COLORS.GREEN }} />
+          : <ButtonCmp title="CANCEL" onPress={() => onCancelToCart(item)} style={{ paddingHorizontal: rw(5), alignSelf: 'flex-end', paddingVertical: rw(2) }} />
         }
       </View>
     </TouchableOpacity>
@@ -72,5 +72,3 @@ const FoodBoxCmp = (props) => {
 }
 
 export default FoodBoxCmp
-
-const styles = StyleSheet.create({})

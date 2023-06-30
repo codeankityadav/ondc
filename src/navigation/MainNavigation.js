@@ -1,10 +1,9 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import { AddressScreen, CartScreen, CategoryScreen, FoodScreen, HomeScreen, LoginScreen, OrderReview, OrdersScreen, PaymentScreen, ProfileScreen, RestaurantScreen, SplashScreen, VerifyOTPScreen } from '../screen';
+import { AddressScreen, CartScreen, CategoryScreen, FoodScreen, LoginScreen, OrderReview, OrdersScreen, PaymentScreen, ProfileScreen, RestaurantScreen, SplashScreen, VerifyOTPScreen } from '../screen';
 import { ROUTE } from '../utils/constants/Route';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
-import HomeDrawer from './drawer/HomeDrawer'; 
+import HomeDrawer from './drawer/HomeDrawer';
 import AccountScreen from '../screen/AccountScreen';
 
 const MainNavigation = () => {
@@ -37,5 +36,3 @@ const MainNavigation = () => {
 }
 
 export default MainNavigation
-
-const styles = StyleSheet.create({})

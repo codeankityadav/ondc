@@ -1,4 +1,4 @@
-import { StyleSheet, Image, TouchableOpacity, View, Text } from 'react-native'
+import {  Image, TouchableOpacity, View, Text } from 'react-native'
 import React from 'react'
 import { rh, rw } from '../utils/Dimension'
 import { COLORS, ROUTE } from '../utils/constants'
@@ -51,5 +51,3 @@ const RestaurantBoxCmp = (props) => {
 }
 
 export default RestaurantBoxCmp
-
-const styles = StyleSheet.create({})

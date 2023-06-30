@@ -1,4 +1,3 @@
-import { StyleSheet, Text, View } from 'react-native'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { FoodScreen, RestaurantScreen } from '../../screen';
 import { COLORS, FONT_FAMILY, ROUTE } from '../../utils/constants';
@@ -32,5 +31,3 @@ const HomeTopTab = () => {
 }
 
 export default HomeTopTab
-
-const styles = StyleSheet.create({})

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import {  Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer'
 import { gStyles } from '../../Style'
@@ -35,5 +35,3 @@ const CustomDrawer = (props) => {
 }
 
 export default CustomDrawer
-
-const styles = StyleSheet.create({})
