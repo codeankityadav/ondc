@@ -11,8 +11,11 @@ let ROUTE = {
     PAYMENT: "Payment",
     ADDRESS: "Address",
     PROFILE: "Profile",
-    ORDERS: "Order", 
-    ACCOUNT: "Account", 
+    ORDERS: "Order",
+    ACCOUNT: "Account",
+    PRIVACY_POLICY: "Privacy & Policy",
+    CONTACT_US: "Contact Us",
+    TERM_CONDITION: "Terms & Condition",
 
     HOME_DRAWER: "Home Drawer",
     HOME_BOTTOM_TAB: "Home Bottom Tab",

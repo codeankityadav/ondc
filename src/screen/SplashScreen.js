@@ -15,7 +15,7 @@ const SplashScreen = ({ navigation }) => {
     dispatch(setFood(FOOD))
     dispatch(setRestaurant(RESTAURANT))
     setTimeout(() => {
-      navigation.navigate(ROUTE.HOME_DRAWER)
+      navigation.replace(ROUTE.HOME_DRAWER)
     }, 3000);
     return () => {
       clearTimeout()

@@ -13,6 +13,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import FontAwesome5Pro from 'react-native-vector-icons/FontAwesome5Pro'
 import Foundation from 'react-native-vector-icons/Foundation'
 import RNIMigration from 'react-native-vector-icons/RNIMigration'
+import Zocial from 'react-native-vector-icons/Zocial'
 
 export {
     AntDesign,
@@ -29,5 +30,6 @@ export {
     FontAwesome5Pro,
     Foundation,
     RNIMigration,
-    Fontisto
+    Fontisto,
+    Zocial
 }

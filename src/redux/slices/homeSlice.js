@@ -1,5 +1,5 @@
 import { createSlice, current } from '@reduxjs/toolkit'
-const loginSlice = createSlice({
+const homeSlice = createSlice({
     name: 'home',
     initialState: {
         loading: false,
@@ -8,7 +8,11 @@ const loginSlice = createSlice({
         searchKeyword: "",
         cart: [],
         address: [],
-        profile: {}
+        profile: {
+            name : "",
+            email : "",
+            phone : ""
+        }
     },
     reducers: {
         setLoading: (state, action) => {
@@ -67,7 +71,7 @@ const loginSlice = createSlice({
 
     }
 })
-const loginReducer = loginSlice.reducer;
+const loginReducer = homeSlice.reducer;
 export const {
     setLoading,
     setFood,
@@ -80,5 +84,5 @@ export const {
     resetAddress,
     removeAddress,
     setProfile
-} = loginSlice.actions
+} = homeSlice.actions
 export default loginReducer;

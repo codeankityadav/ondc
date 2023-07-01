@@ -11,6 +11,9 @@ import AddressScreen from './AddressScreen'
 import CategoryScreen from './CategoryScreen'
 import VerifyOTPScreen from './VerifyOTPScreen'
 import AccountScreen from './AccountScreen'
+import PrivacyPolicyScreen from './PrivacyPolicyScreen'
+import TermsConditionScreen from './TermsConditionScreen'
+import ContactUsScreen from './ContactUsScreen'
 
 
 
@@ -28,4 +31,7 @@ export {
     CategoryScreen,
     VerifyOTPScreen,
     AccountScreen,
+    PrivacyPolicyScreen,
+    TermsConditionScreen,
+    ContactUsScreen
 }

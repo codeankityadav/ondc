@@ -1,11 +1,10 @@
 import { combineReducers, configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
-import loginReducer from './slices/loginSlice';
 import homeReducer from './slices/homeSlice';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import autoMergeLevel2 from 'redux-persist/es/stateReconciler/autoMergeLevel2';
 import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
 const rootReducer = combineReducers({
-    login: loginReducer,
+    // login: loginReducer,
     home: homeReducer,
 });
 const persistConfig = {
@@ -14,7 +13,7 @@ const persistConfig = {
     timeout: null,
     storage: AsyncStorage,
     stateReconciler: autoMergeLevel2,
-    whitelist: ['login'], //Things u want to persist
+    whitelist: ['home'], //Things u want to persist
     blacklist: [], //Things u dont
 };
 const persistedReducer = persistReducer(persistConfig, rootReducer);
