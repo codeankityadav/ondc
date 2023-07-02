@@ -13,7 +13,7 @@ const OrdersScreen = ({ navigation }) => {
       {/* <HeaderCmp isSearch={false} /> */}
 
       <View style={gStyles.containerCenter}>
-        <Lottie source={require('../assets/lottie/not-available.json')} style={{ width: rw(90), height: rw(90) }} duration={5000} autoPlay loop />
+        <Lottie source={require('../assets/lottie/food.json')} style={{ width: rw(90), height: rw(90) }} duration={5000} autoPlay loop />
         <Text style={[gStyles.titleText, { paddingTop: rw(5), textAlign: 'center', color: COLORS.LIGHT_BLUE }]}>You haven't Ordered Anything !</Text>
       </View>
 

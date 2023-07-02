@@ -80,7 +80,7 @@ const FoodScreen = ({ navigation }) => {
           </View>
         </> :
         <View style={gStyles.containerCenter}>
-          <Lottie source={require('../assets/lottie/not-available.json')} style={{ width: rw(90), height: rw(90) }} duration={5000} autoPlay loop />
+          <Lottie source={require('../assets/lottie/food.json')} style={{ width: rw(100), height: rw(100) }} duration={5000} autoPlay loop />
           <Text style={[gStyles.titleText, { paddingTop: rw(5), textAlign: 'center', color: COLORS.LIGHT_BLUE }]}>No result found for {searchKeyword} !</Text>
         </View>
       }

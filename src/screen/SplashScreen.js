@@ -3,12 +3,14 @@ import React from 'react'
 import { COLORS, FONT_FAMILY, FONT_SIZE, FOOD, RESTAURANT, ROUTE} from '../utils/constants'
 import { gStyles } from '../Style'
 import { LoadingIcon, Wrapper } from '../component'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setFood, setRestaurant } from '../redux/slices/homeSlice'
 
 const SplashScreen = ({ navigation }) => {
 
   const dispatch = useDispatch()
+  const home = useSelector(state => state.home)
+
 
 
   React.useEffect(() => {

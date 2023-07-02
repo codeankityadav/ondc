@@ -1,4 +1,4 @@
-import {  FlatList, View, Text } from 'react-native'
+import { FlatList, View, Text } from 'react-native'
 import React from 'react'
 import { COLORS, ROUTE, rh, rw } from '../utils/constants'
 import { BottomBtnCmp, CenterCmp, FoodBoxCmp, HeaderCmp, Wrapper } from '../component'
@@ -21,7 +21,7 @@ const CartScreen = ({ navigation }) => {
             <HeaderCmp isSearch={false} />
             <View style={{ backgroundColor: COLORS.WHITE, paddingTop: rh(2) }}>
               <TotalProductCmp totalProducts={cart.length} totalPrice={totalPrice} />
-              <CenterCmp style={{ paddingHorizontal: rw(5) }}>
+              <CenterCmp style={{ paddingHorizontal: rw(5),paddingBottom : rw(50)}}>
                 <FlatList
                   data={cart}
                   renderItem={({ item }) => <FoodBoxCmp item={item} />}
@@ -40,7 +40,7 @@ const CartScreen = ({ navigation }) => {
           <Wrapper>
             <HeaderCmp isSearch={false} />
             <View style={gStyles.containerCenter}>
-              <Lottie source={require('../assets/lottie/not-available.json')} style={{ width: rw(90), height: rw(90) }} duration={5000} autoPlay loop />
+              <Lottie source={require('../assets/lottie/food.json')} style={{ width: rw(90), height: rw(90) }} duration={5000} autoPlay loop />
               <Text style={[gStyles.titleText, { paddingTop: rw(5), textAlign: 'center', color: COLORS.LIGHT_BLUE }]}>Your Cart is Empty !</Text>
             </View>
           </Wrapper>

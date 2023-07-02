@@ -8,9 +8,11 @@ import { COLORS, FONT_FAMILY, ROUTE } from '../utils/constants'
 import { ORDERS_LINKS } from '../utils/constants/Data'
 import ImageTextRowCmp from '../component/ImageTextRowCmp'
 import { useNavigation } from '@react-navigation/native'
+import { useSelector } from 'react-redux'
 
 const AccountScreen = () => {
     const navigation = useNavigation()
+    const { profile } = useSelector(state => state.home)
 
     return (
         <Wrapper>
@@ -25,22 +27,28 @@ const AccountScreen = () => {
                         borderBottomWidth: rw(0.1),
 
                     }}
+                    onPress={() => navigation.navigate(ROUTE.PROFILE)}
                 >
-                    <TouchableOpacity className="flex-row items-center" onPress={() => navigation.navigate(ROUTE.PROFILE)} >
+                    <View className="flex-row items-center">
+
 
                         <FontAwesome name="user-circle" size={rw(25)} color={COLORS.LIGHT_BLUE} />
-                        <View style={{ marginLeft: rw(5), width: rw(45) }}>
-                            <Text style={gStyles.titleText}>Ankit Yadav</Text>
-                            <Text style={gStyles.titleDescText}>ankit@gmail.com</Text>
-                            <Text style={[gStyles.titleDescText, { fontFamily: FONT_FAMILY.OUTFIT.MEDIUM, color: COLORS.BLACK }]}>9594371397</Text>
-                        </View>
-                    </TouchableOpacity>
+                        {(profile.name.length > 0 && profile.email.length > 0 && profile.phone.length > 0) ?
+                            <View style={{ marginLeft: rw(5), width: rw(45) }}>
+                                <Text style={gStyles.titleText}>{profile.name}</Text>
+                                <Text style={gStyles.titleDescText}>{profile.email}</Text>
+                                <Text style={[gStyles.titleDescText, { fontFamily: FONT_FAMILY.OUTFIT.MEDIUM, color: COLORS.BLACK }]}>{profile.phone}</Text>
+                            </View> :
+                            <Text style={[gStyles.titleText, { maxWidth: rw(40), marginHorizontal: rw(5) }]}>Click to Complete your Profile !</Text>
+                        }
+
+                    </View>
                     <Entypo name="chevron-right" size={rw(6)} color={COLORS.BLACK} />
                 </TouchableOpacity>
 
                 <FlatList
                     data={ORDERS_LINKS}
-                    renderItem={({ item }) => <ImageTextRowCmp title={item.title} icon={item.icon} navigateTo={item.navigateTo} />}
+                    renderItem={({ item }) => <ImageTextRowCmp title={item.title} icon={item.icon} onPress={() => navigation.navigate(item.navigateTo)} />}
                     keyExtractor={(item) => item.id}
                     contentContainerStyle={{ padding: rw(0.2) }}
                 />

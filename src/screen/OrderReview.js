@@ -1,4 +1,4 @@
-import {  FlatList, View, Text, ScrollView } from 'react-native'
+import { FlatList, View, Text, ScrollView } from 'react-native'
 import React from 'react'
 import { COLORS, ROUTE, rh, rw } from '../utils/constants'
 import { BottomBtnCmp, CenterCmp, FoodBoxCmp, HeaderCmp, Wrapper } from '../component'
@@ -34,7 +34,7 @@ const OrderReviewScreen = ({ navigation }) => {
         alert("Please fill the address")
         navigation.navigate(ROUTE.ADDRESS)
       }
-    }else{
+    } else {
       navigation.navigate(ROUTE.PAYMENT)
     }
     return
@@ -55,7 +55,7 @@ const OrderReviewScreen = ({ navigation }) => {
         <View style={{ backgroundColor: COLORS.WHITE, paddingTop: rh(2) }}>
           <TotalProductCmp totalProducts={cart.length} totalPrice={totalPrice} isToggle={true} isVisible={isVisible} setIsVisible={setIsVisible} />
           {isVisible ?
-            <CenterCmp style={{ paddingHorizontal: rw(5) }}>
+            <CenterCmp style={{ paddingHorizontal: rw(5), maxHeight: rh(40) }}>
               <FlatList
                 data={cart}
                 renderItem={({ item }) => <FoodBoxCmp item={item} />}

@@ -1,7 +1,21 @@
 let BASE_URL = 'https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit'
 let BASE_CAT_URL = 'https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/rng/md/carousel/production'
+let BASE_FOOD_URL = `https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill`
 
 let IMAGE = {
+
+    RESTAURANTS:
+    {
+        SHUBDUM_CHINESE_CORNER: `${BASE_URL}/heuqgfhfysd1eho1iib0`,
+        DOMINOS_PIZZA: `${BASE_URL}/aimajvlwqnus1s3h7dy7`,
+        MANIS_CAFE: `${BASE_URL}/asfkxu8pkcelux2nkz05`,
+        PIZZAHOT: `https://res.cloudinary.com/dindwsjod/image/upload/v1685202256/ondc/images/restaurant/pizza_hut_xnzjrd.jpg`,
+        DOSA1: `https://res.cloudinary.com/dindwsjod/image/upload/v1685202256/ondc/images/restaurant/dosa_bupmqc.jpg`,
+        DOMINOSPIZZA: `https://res.cloudinary.com/dindwsjod/image/upload/v1685202256/ondc/images/restaurant/domino_s_pizza_ijlhhr.jpg`,
+        CURRY: `https://res.cloudinary.com/dindwsjod/image/upload/v1685202256/ondc/images/restaurant/curry_hasqay.jpg`,
+        MEGHANA: `${BASE_FOOD_URL}/vxxpqtjryjhhrpoxt65h`,
+        SOUTH_INIDAN_THALI: `${BASE_FOOD_URL}/lzomhmatutqbkk5cqedv`,
+    },
 
     FOODS: {
         VEG_MANCHURIAN_DRY: `${BASE_URL}/f517ba3ce6f35abbd1c0a267b1febaab`,
@@ -21,6 +35,12 @@ let IMAGE = {
         CHICKEN_TIKKA: `https://res.cloudinary.com/dindwsjod/image/upload/v1685202255/ondc/images/foods/chicken_hssugt.webp`,
         PANEER_TIKKA: `https://res.cloudinary.com/dindwsjod/image/upload/v1685202255/ondc/images/foods/food1_bmr6j5.webp`,
         CHICKEN_DUM: `https://res.cloudinary.com/dindwsjod/image/upload/v1685202255/ondc/images/foods/food_knld0q.jpg`,
+        BIRYANI: `${BASE_FOOD_URL}/yfyo8aklppbwdplv7ofp`,
+        BIRYANI2: `${BASE_FOOD_URL}/n7pn6ilfponvcatp0n73`,
+        SOUTH_INIDAN_FOOD1: `${BASE_FOOD_URL}/psnnp9pfztfsubamsgdq`,
+        CAKE1: `${BASE_FOOD_URL}/zwv6dwhw82s4u38byk8o`,
+        DESSERT1: `${BASE_FOOD_URL}/94cc59f1f6f22bf48ec3fd6770a7ce86`,
+
 
     },
     CATEGORIES:
@@ -36,19 +56,9 @@ let IMAGE = {
         NORTH_INDIAN: `${BASE_CAT_URL}/c170aa4262ec0d191642f42a3a03b4ce`,
         SOUTH_INIDAN: `${BASE_CAT_URL}/0b5ffa32a04d99c1f212d2aacefd5f6f`,
         SANDWICH: `${BASE_CAT_URL}/36184033ebef97d27a85fa3af5c1d403`,
-        ICE_CREAM: `${BASE_CAT_URL}/36184033ebef97d27a85fa3af5c1d403`, 
+        ICE_CREAM: `${BASE_CAT_URL}/36184033ebef97d27a85fa3af5c1d403`,
     },
 
-    RESTAURANTS:
-    {
-        SHUBDUM_CHINESE_CORNER: `${BASE_URL}/heuqgfhfysd1eho1iib0`,
-        DOMINOS_PIZZA: `${BASE_URL}/aimajvlwqnus1s3h7dy7`,
-        MANIS_CAFE: `${BASE_URL}/asfkxu8pkcelux2nkz05`,
-        PIZZAHOT: `https://res.cloudinary.com/dindwsjod/image/upload/v1685202256/ondc/images/restaurant/pizza_hut_xnzjrd.jpg`,
-        DOSA1: `https://res.cloudinary.com/dindwsjod/image/upload/v1685202256/ondc/images/restaurant/dosa_bupmqc.jpg`,
-        DOMINOSPIZZA: `https://res.cloudinary.com/dindwsjod/image/upload/v1685202256/ondc/images/restaurant/domino_s_pizza_ijlhhr.jpg`,
-        CURRY: `https://res.cloudinary.com/dindwsjod/image/upload/v1685202256/ondc/images/restaurant/curry_hasqay.jpg`,
-    }
 
 }
 

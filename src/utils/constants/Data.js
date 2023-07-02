@@ -8,6 +8,8 @@ let RESTAURANT = [
     { id: 1, title: "Shubdum Chinese Corner", imgSrc: IMAGE.RESTAURANTS.SHUBDUM_CHINESE_CORNER, desc: `Chinese, North Indian`, location: 'Mumbai', distance: 4.0, rating: 4.5 },
     { id: 2, title: "Domino's Pizza", imgSrc: IMAGE.RESTAURANTS.DOMINOSPIZZA, desc: `Pizzas, Italian`, location: 'Mulund East', distance: 1.0, rating: 4.5 },
     { id: 3, title: "Mani's Cafe", imgSrc: IMAGE.RESTAURANTS.MANIS_CAFE, desc: `Indian`, location: 'Mulund East', distance: 300, rating: 4.5 },
+    { id: 4, title: "Meghana Foods", imgSrc: IMAGE.RESTAURANTS.MEGHANA, desc: `Indian`, location: 'Dadar East', distance: 300, rating: 4.5 },
+    { id: 5, title: "South Indian Thali", imgSrc: IMAGE.RESTAURANTS.SOUTH_INIDAN_THALI, desc: `Indian`, location: 'Sion East', distance: 300, rating: 4.5 },
     // { id: 1, title: "Manni's Cafe", imgSrc: IMAGE.RESTAURANTS.WHITEDOSA, desc: `Idli, Mendu wada, Maisuri - South Indian` }, 
 ]
 
@@ -26,6 +28,24 @@ let FOOD = [
     { id: 9, title: "Upma", price: 35, imgSrc: IMAGE.FOODS.UPMA, desc: "Medium Spicy | Serves 1", restaurant: { id: 3, restaurantName: "Mani's Cafe" } },
     { id: 10, title: "Podi Idli", price: 35, imgSrc: IMAGE.FOODS.PODI_IDLI, desc: "Serves 1", restaurant: { id: 3, restaurantName: "Mani's Cafe" } },
     { id: 11, title: "Pizza Dosa", price: 90, imgSrc: IMAGE.FOODS.PIZZA_DOSA, desc: "Medium Spicy | Serves 1", restaurant: { id: 3, restaurantName: "Mani's Cafe" } },
+
+    { id: 12, title: "Veg Biryani", price: 160, imgSrc: IMAGE.FOODS.BIRYANI, desc: "Medium Spicy | Serves 1", restaurant: { id: 4, restaurantName: "Meghana Foods" } },
+    { id: 13, title: "Biryani 65", price: 180, imgSrc: IMAGE.FOODS.BIRYANI2, desc: "Medium Spicy | Serves 1", restaurant: { id: 4, restaurantName: "Meghana Foods" } },
+
+    { id: 14, title: "Palak Mushroom", price: 180, imgSrc: IMAGE.FOODS.SOUTH_INIDAN_FOOD1, desc: "Medium Spicy | Serves 1", restaurant: { id: 5, restaurantName: "South Indian Thali" } },
+    { id: 15, title: "Choco Truffle Cake", price: 180, imgSrc: IMAGE.FOODS.CAKE1, desc: "Switty | Serves 1", restaurant: { id: 5, restaurantName: "Mani's Cafe" } },
+    { id: 16, title: "The Almond Fudge Brownie Ice Cream Cake - Dessert", price: 180, imgSrc: IMAGE.FOODS.DESSERT1, desc: "Switty | Serves 1", restaurant: { id: 5, restaurantName: "Mani's Cafe" } },
+
+
+
+    // { id: 11, title: "Pizza Dosa", price: 90, imgSrc: IMAGE.FOODS.PIZZA_DOSA, desc: "Medium Spicy | Serves 1", restaurant: { id: 3, restaurantName: "Mani's Cafe" } },
+    // { id: 11, title: "Pizza Dosa", price: 90, imgSrc: IMAGE.FOODS.PIZZA_DOSA, desc: "Medium Spicy | Serves 1", restaurant: { id: 3, restaurantName: "Mani's Cafe" } },
+    // { id: 11, title: "Pizza Dosa", price: 90, imgSrc: IMAGE.FOODS.PIZZA_DOSA, desc: "Medium Spicy | Serves 1", restaurant: { id: 3, restaurantName: "Mani's Cafe" } },
+    // { id: 11, title: "Pizza Dosa", price: 90, imgSrc: IMAGE.FOODS.PIZZA_DOSA, desc: "Medium Spicy | Serves 1", restaurant: { id: 3, restaurantName: "Mani's Cafe" } },
+    // { id: 11, title: "Pizza Dosa", price: 90, imgSrc: IMAGE.FOODS.PIZZA_DOSA, desc: "Medium Spicy | Serves 1", restaurant: { id: 3, restaurantName: "Mani's Cafe" } },
+    // { id: 11, title: "Pizza Dosa", price: 90, imgSrc: IMAGE.FOODS.PIZZA_DOSA, desc: "Medium Spicy | Serves 1", restaurant: { id: 3, restaurantName: "Mani's Cafe" } },
+    // { id: 11, title: "Pizza Dosa", price: 90, imgSrc: IMAGE.FOODS.PIZZA_DOSA, desc: "Medium Spicy | Serves 1", restaurant: { id: 3, restaurantName: "Mani's Cafe" } },
+
 
 ]
 
@@ -86,7 +106,7 @@ let ORDERS = [
 let ORDERS_LINKS = [
     { id: 1, title: 'My Orders', navigateTo: ROUTE.ORDERS, icon: <AntDesign name="profile" size={rw(6)} color={COLORS.LIGHT_BLUE} /> },
     { id: 2, title: 'Delivery Address', navigateTo: ROUTE.ADDRESS, icon: <AntDesign name="fork" size={rw(6)} color={COLORS.LIGHT_BLUE} /> },
-    { id: 3, title: 'Sign Out', navigateTo: "", icon: <AntDesign name="logout" size={rw(6)} color={COLORS.LIGHT_BLUE} /> },
+    // { id: 3, title: 'Sign Out', navigateTo: ROUTE.HOME_DRAWER, icon: <AntDesign name="logout" size={rw(6)} color={COLORS.LIGHT_BLUE} /> },
 ]
 
 let CATEGORY = [

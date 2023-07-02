@@ -1,13 +1,13 @@
-import {  Text, TouchableOpacity } from 'react-native'
+import { Text, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { gStyles } from '../Style'
 import { rw } from '../utils/Dimension'
 import { COLORS } from '../utils/constants'
-import { useNavigation } from '@react-navigation/native'
 
 const ImageTextRowCmp = (props) => {
 
-    const navigation = useNavigation()
+    const { onPress = () => { } } = props;
+ 
     return (
         <TouchableOpacity
             className="flex-row items-center"
@@ -16,7 +16,7 @@ const ImageTextRowCmp = (props) => {
                 borderBottomWidth: rw(0.1),
                 paddingVertical: rw(8)
             }}
-            onPress={() => navigation.navigate(props.navigateTo)}>
+            onPress={onPress}>
             {props.icon}
             <Text style={[gStyles.titleText, { marginLeft: rw(5) }]}>{props.title}</Text>
         </TouchableOpacity>

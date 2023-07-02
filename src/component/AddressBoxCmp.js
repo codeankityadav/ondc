@@ -11,7 +11,6 @@ import { useNavigation, useRoute } from '@react-navigation/native'
 const AddressBoxCmp = ({ setIsVisible, isVisible, item }) => {
     const route = useRoute();
     const navigation = useNavigation()
-
     const routes = navigation.getState()?.routes;
     const prevRoute = routes[routes.length - 2].name;
 
@@ -21,7 +20,9 @@ const AddressBoxCmp = ({ setIsVisible, isVisible, item }) => {
     const returnIndexOfAddress = (id) => {
         let index = address.findIndex((d) => d.id == id)
         dispatch(setPrimaryAddress(index))
-        navigation.navigate(ROUTE.ORDER_REVIEW)
+        if (prevRoute == ROUTE.CART) {
+            navigation.navigate(ROUTE.ORDER_REVIEW)
+        }
     }
 
     return (
@@ -36,7 +37,6 @@ const AddressBoxCmp = ({ setIsVisible, isVisible, item }) => {
                             <TouchableOpacity style={styles.isPrimaryBox}>
                                 <Text style={[gStyles.titleDescText, { color: COLORS.WHITE }]}>Default</Text>
                             </TouchableOpacity>
-
                         </View>
                     }
                 </>
@@ -53,9 +53,22 @@ const AddressBoxCmp = ({ setIsVisible, isVisible, item }) => {
                 {route.name == ROUTE.ADDRESS && <MaterialCommunityIcons name="delete" size={rw(7)} color={COLORS.RED} onPress={() => dispatch(removeAddress(item.id))} />}
             </View>
 
-            {prevRoute == ROUTE.CART && <TouchableOpacity style={styles.setAsPrimaryBox} onPress={() => returnIndexOfAddress(item.id)}>
-                <Text style={[gStyles.titleDescText, { color: COLORS.WHITE }]}>Deliver Here</Text>
-            </TouchableOpacity>}
+            {prevRoute == ROUTE.CART ?
+                <TouchableOpacity style={styles.setAsPrimaryBox} onPress={() => returnIndexOfAddress(item.id)}>
+                    <Text style={[gStyles.titleDescText, { color: COLORS.WHITE }]}>Deliver Here</Text>
+                </TouchableOpacity>
+                :
+                <>
+                    {
+                        route.name == ROUTE.ORDER_REVIEW  ?
+                            <></>
+                            :
+                            <TouchableOpacity style={styles.setAsPrimaryBox} onPress={() => returnIndexOfAddress(item.id)}>
+                                <Text style={[gStyles.titleDescText, { color: COLORS.WHITE, textTransform: 'capitalize' }]}>Make it Default</Text>
+                            </TouchableOpacity>
+                    }
+                </>
+            }
         </View>
     )
 }
