@@ -125,8 +125,8 @@ const PRIVACY_POLICY = [
     {
         id : 1,
         title: `PRIVACY POLICY`,
-        desc: <>This app under the domain of https://ondc-food.netlify.app/ and all other sub-domains under the
-            top level URL are operated by ONDC India, hereby referred to as “ondc india”
+        desc: <>This app under the domain of https://bhojankaksh-food.netlify.app/ and all other sub-domains under the
+            top level URL are operated by bhojankaksh India, hereby referred to as “bhojankaksh india”
             We take your privacy very seriously and we ask that you read this privacy policy carefully as it
             contains important information on:
             the personal information we collect about you
@@ -139,7 +139,7 @@ const PRIVACY_POLICY = [
     {
         id : 2,
         title: `Who we are`,
-        desc: <>ondc ('we' or 'us') are a 'data controller' for the purposes of the Personal Data Protection
+        desc: <>bhojankaksh ('we' or 'us') are a 'data controller' for the purposes of the Personal Data Protection
             Act (PDPA) and any subsequent Inida data protection legislation and we are responsible for, and
             control the processing of, your personal information.</>
     },
@@ -276,7 +276,7 @@ const PRIVACY_POLICY = [
     {
         id : 14,
         title: `Important Note about account deletion`,
-        desc: <>Please note that ondc uses a multi-channel
+        desc: <>Please note that bhojankaksh uses a multi-channel
             user login system. In case you have used multiple brands across multiple channels (such as
             LINE, Google, Web, Facebook) – please list all the potential email addresses and phone
             number(s) that you have used to access our services. Please be very specific in your message,
@@ -328,7 +328,7 @@ const TERMS = [
         desc: <>These are the terms and conditions (“Terms”) that govern your use of this app and any
             purchase of a Product (“Food Delivery or Pickup”).
             This forms a legal agreement between you, the user of the app and purchaser of any
-            Product(s), and ONDC India ( “we”, “us”, “our”) and you must agree to these Terms in
+            Product(s), and bhojankaksh India ( “we”, “us”, “our”) and you must agree to these Terms in
             order to purchase a Product(s)
             If you do not accept these Terms, you should not make any further use of this app and you
             will not be able to purchase a Product(s).</>
@@ -401,18 +401,18 @@ const TERMS = [
             information received from you. We comply with Inidan’s data protection legislation, including
             the Personal Data Protection Act (PDPA).
             By using our app and purchasing a Product(s), you agree that you have read and accepted
-            our privacy policy, available at https://ondc-food.netlify.app/ .
+            our privacy policy, available at https://bhojankaksh-food.netlify.app/ .
         </>
     },
     {
         id : 8,
         title: `How can you delete you personal information ?`,
-        desc: <>You may request account deletion via https://ondc-food.netlify.app/  </>
+        desc: <>You may request account deletion via https://bhojankaksh-food.netlify.app/  </>
     },
     {
         id : 9,
         title: `Important Note about account deletion`,
-        desc: <>Please note that ondc uses a multi-channel
+        desc: <>Please note that bhojankaksh uses a multi-channel
             user login system. In case you have used multiple brands across multiple channels (such as
             LINE, Google, Web, Facebook) – please list all the potential email addresses and phone
             number(s) that you have used to access our services. Please be very specific in your message,

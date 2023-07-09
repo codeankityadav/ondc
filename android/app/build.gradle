@@ -93,13 +93,13 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.ondc"
+    namespace "com.bhojankaksh"
     defaultConfig {
-        applicationId "com.ondc"
+        applicationId "com.bhojankaksh"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 8
-        versionName "1.8.0"
+        versionCode 20
+        versionName "2.0.0"
     }
 
     splits {
@@ -135,6 +135,7 @@ android {
             // see https://reactnative.dev/docs/signed-apk-android.
             shrinkResources true
             minifyEnabled true
+            crunchPngs false //error in reading png signature
             signingConfig signingConfigs.release
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"

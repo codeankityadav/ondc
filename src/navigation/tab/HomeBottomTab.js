@@ -18,7 +18,7 @@ const HomeBottomTab = () => {
     return (
 
         <Wrapper>
-            <HeaderCmp isSearch={true} placeholder="Search ONDC Foods" />
+            <HeaderCmp isSearch={true} placeholder="Search Food" />
             <Tab.Navigator screenOptions={{
                 headerShown: false,
                 // tabBarIcon: ({ tintColor }) => (
